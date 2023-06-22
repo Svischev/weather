@@ -6,6 +6,11 @@ development:
   database: weather-dev
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
+test:
+  <<: *default
+  database: weather-test
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
 production:
   <<: *default
   database: weather-prod
