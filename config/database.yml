@@ -1,6 +1,7 @@
 default: &default
   url: <%= ENV["DB_URL"] %>
   adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 development:
   <<: *default
   database: weather-dev
@@ -11,13 +12,13 @@ test:
   database: weather-test
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
-production:
-  <<: *default
-  database: weather-prod
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
 staging:
   <<: *default
   database: weather-stage
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
+production:
+  <<: *default
+  database: weather-production
+  username: weather-pavel
+  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
