@@ -7,7 +7,7 @@ RSpec.describe Weather::SearchService do
     let(:call_service) { described_class.call(params) }
     let(:params) do
       {
-        city_id: city_id
+        city_id:
       }
     end
     let(:city) { create :city }

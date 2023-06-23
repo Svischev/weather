@@ -1,33 +1,37 @@
-class Weather::SearchService < ApplicationService
-  attr_reader :city_id
+# frozen_string_literal: true
 
-  def initialize(city_id:)
-    @city_id = city_id
-  end
+module Weather
+  class SearchService < ApplicationService
+    attr_reader :city_id
 
-  def call
-    validate
-
-    Rails.cache.fetch("weather_city_#{city_id}", expires_in: 10.minutes) do
-      load_weather.deep_symbolize_keys
+    def initialize(city_id:)
+      @city_id = city_id
     end
-  end
 
-  private
+    def call
+      validate
 
-  def validate
-    halt(:city, :not_found) if city.blank?
-  end
+      Rails.cache.fetch("weather_city_#{city_id}", expires_in: 10.minutes) do
+        load_weather.deep_symbolize_keys
+      end
+    end
 
-  def city
-    @city ||= City.find_by(id: city_id)
-  end
+    private
 
-  def load_weather
-    client.weather(lat: city.lat, lon: city.lon)
-  end
+    def validate
+      halt(:city, :not_found) if city.blank?
+    end
 
-  def client
-    @client ||= Api::Openweathermap.new
+    def city
+      @city ||= City.find_by(id: city_id)
+    end
+
+    def load_weather
+      client.weather(lat: city.lat, lon: city.lon)
+    end
+
+    def client
+      @client ||= Api::Openweathermap.new
+    end
   end
 end
