@@ -1,9 +1,13 @@
-class Api::Openweathermap < Api::Client
-  include Weather
+# frozen_string_literal: true
 
-  API_URL = 'https://api.openweathermap.org/data/2.5'
+module Api
+  class Openweathermap < Api::Client
+    include Api::OpenweathermapModules::Weather
 
-  def get(path, params)
-    super path, params.merge(appid: ENV['OWM_APPID'])
+    API_URL = 'https://api.openweathermap.org/data/2.5'
+
+    def get(path, params)
+      super path, params.merge(appid: ENV['OWM_APPID'])
+    end
   end
 end
