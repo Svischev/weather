@@ -61,3 +61,10 @@ https://yandex.ru/dev/maps/jsapi
 OWM_APPID=6e8fedc7ee0e89d13cbc0a0499972abc
 YANDEX_API_KEY=d9b326b3-beeb-499d-9ecb-938c75c7af75
 ```
+
+**Скрины:**
+
+<img width="890" alt="Снимок экрана 2023-06-23 в 12 06 50" src="https://github.com/Svischev/weather/assets/7647253/a56b39aa-ab92-4ea9-b014-ea58d3c2763e">  
+<img width="1163" alt="Снимок экрана 2023-06-23 в 12 08 49" src="https://github.com/Svischev/weather/assets/7647253/7e6d2972-4444-49c8-9ae7-ed696f332bf5">  
+
+
