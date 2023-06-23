@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Название</th>
+      <th scope="col">Lat</th>
+      <th scope="col">Lon</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @cities.each do |city| %>
+      <tr>
+        <th scope="row"><%= city.id %></th>
+        <td><%= city.name %></td>
+        <td><%= city.lat %></td>
+        <td><%= city.lon %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= bootstrap_form_for([:admin, @city]) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :lat %>
+  <%= f.text_field :lon %>
+  <%= f.submit 'Создать город' %>
+<% end %>

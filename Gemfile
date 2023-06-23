@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 
 gem 'bootstrap', '~> 5.1.3'
 gem 'bootstrap_form', '~> 5.2'
+gem 'simple_form'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views'
