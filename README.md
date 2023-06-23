@@ -1,6 +1,6 @@
 # README
 
-База: postgresql  
+**База: postgresql**
 Есть реализация seed для создания пользователей и городов.  
 
 ```
@@ -8,6 +8,13 @@ bundle
 rails db:create
 rails db:migrate
 rails db:seed
+```
+
+**Тесты и rubocop**
+
+```
+rspec
+rubocop
 ```
 
 **Использовал**:
