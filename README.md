@@ -6,8 +6,8 @@ ruby 3.1.2
 **База: postgresql**
 
 Есть реализация seed для создания пользователей и городов.  
-админ: admin@mail.ru (пасс admin@mail.ru)
-пользователь: user1@mail.ru (пасс user1@mail.ru)
+админ: admin@mail.ru (пасс admin@mail.ru)  
+пользователь: user1@mail.ru (пасс user1@mail.ru)  
 
 ```
 bundle
