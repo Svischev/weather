@@ -8,7 +8,7 @@ class Weather::SearchService < ApplicationService
   def call
     validate
 
-    Rails.cache.fetch("weather_city_#{city_id}", expires_in: 10.seconds) do
+    Rails.cache.fetch("weather_city_#{city_id}", expires_in: 10.minutes) do
       load_weather.deep_symbolize_keys
     end
   end

@@ -1,0 +1,68 @@
+<%= bootstrap_form_tag url: weather_search_path, method: :get, data: { turbo: false } do |f| %>
+  <%= f.select :city_id, @info[:cities]&.map { |city| [city.name, city.id] },
+    {
+      label: 'Выберите город:',
+      selected: @info[:city_id]
+    },
+    {
+      class: 'selectpicker'
+    }
+  %>
+  <%= f.submit 'Посмотреть погоду', class: "btn btn-success" %>
+<% end %>
+
+<hr>
+
+<% if @info.dig(:weather).present? %>
+  <div class="alert alert-info" role="alert">
+    Температура: <b><%= @info.dig(:weather, :main, :temp) %></b> градусов
+  </div>
+  <br />
+  <div id="map" style="width: 600px; height: 400px"></div>
+<% end %>
+
+
+<script>
+ymaps.ready(init);
+
+function init() {
+    // Создаем карту.
+    var myMap = new ymaps.Map("map", {
+            center: ['<%= @info.dig(:weather, :coord, :lat) %>', '<%= @info.dig(:weather, :coord, :lon) %>'],
+            zoom: 10
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+
+    // Создаем круг.
+    var myCircle = new ymaps.Circle([
+        // Координаты центра круга.
+        ['<%= @info.dig(:weather, :coord, :lat) %>', '<%= @info.dig(:weather, :coord, :lon) %>'],
+        // Радиус круга в метрах.
+        10000
+    ], {
+        // Описываем свойства круга.
+        // Содержимое балуна.
+        balloonContent: "Радиус круга - 10 км",
+        // Содержимое хинта.
+        hintContent: "Подвинь меня"
+    }, {
+        // Задаем опции круга.
+        // Включаем возможность перетаскивания круга.
+        draggable: true,
+        // Цвет заливки.
+        // Последний байт (77) определяет прозрачность.
+        // Прозрачность заливки также можно задать используя опцию "fillOpacity".
+        fillColor: "#00FFFF50",
+        // Цвет обводки.
+        strokeColor: "#E0FFFF",
+        // Прозрачность обводки.
+        strokeOpacity: 0.8,
+        // Ширина обводки в пикселях.
+        strokeWidth: 5
+    });
+
+    // Добавляем круг на карту.
+    myMap.geoObjects.add(myCircle);
+}
+</script>
