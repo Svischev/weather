@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Для реализации использовались гемы:
 
-Things you may want to cover:
+gem 'bootstrap'
+gem 'bootstrap_form'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views'
+gem 'dotenv-rails'
+gem 'faraday'
+gem 'pry'
+gem 'pundit'
+gem 'redis-store'
+gem 'rubocop-rails', require: false
+gem 'simple_form'
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Для тестов:
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'rspec-rails'
+gem 'webmock'

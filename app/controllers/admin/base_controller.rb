@@ -6,8 +6,10 @@ module Admin
 
     before_action :authorize_admin_access
 
+    private
+
     def authorize_admin_access
-      head :forbidden unless current_user&.admin?
+      authorize %i[admin dashboard], :index?
     end
   end
 end
