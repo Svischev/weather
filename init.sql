@@ -1,0 +1,2 @@
+CREATE USER weather WITH PASSWORD 'password';
+ALTER USER weather WITH SUPERUSER;
