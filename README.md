@@ -1,14 +1,16 @@
 # README
 
-rails 7.0.5
-ruby 3.1.2
-postgresql
-redis
+rails 7.0.5  
+ruby 3.1.2  
+postgresql  
+redis  
 
 **Запуск через docker-compose**
 
+```
 docker-compose up -d
 docker-compose exec app rails db:create db:migrate db:seed
+```
 
 **Seed**
 
