@@ -341,6 +341,7 @@ DEPENDENCIES
   faraday
   importmap-rails
   jbuilder
+  nokogiri
   pg
   pry
   puma (~> 5.0)

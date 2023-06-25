@@ -1,26 +1,28 @@
 # README
 
-rails 7.0.5
-ruby 3.1.2
+rails 7.0.5  
+ruby 3.1.2  
+postgresql  
+redis  
 
-**База: postgresql**
+**Запуск через docker-compose**
+
+```
+docker-compose up -d
+docker-compose exec app rails db:create db:migrate db:seed
+```
+
+**Seed**
 
 Есть реализация seed для создания пользователей и городов.  
 админ: admin@mail.ru (пасс admin@mail.ru)  
 пользователь: user1@mail.ru (пасс user1@mail.ru)  
 
-```
-bundle
-rails db:create
-rails db:migrate
-rails db:seed
-```
-
-**Тесты и rubocop**
+**Тесты и rubocop через docker-compose**
 
 ```
-rspec
-rubocop
+docker-compose exec app rspec
+docker-compose exec app rubocop
 ```
 
 **Использовал**:
