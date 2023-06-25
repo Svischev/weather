@@ -1,28 +1,21 @@
 default: &default
-  # url: <%= ENV["DB_URL"] || ENV["DATABASE_URL"] %>
-  host: <%= ENV['DB_HOST'] || 'localhost' %>
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 development:
   <<: *default
   database: weather-dev
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
 test:
   <<: *default
   database: weather-test
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
 staging:
   <<: *default
   database: weather-stage
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
 production:
   <<: *default
   database: weather-production
-  username: weather-pavel
-  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
