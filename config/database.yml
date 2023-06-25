@@ -1,6 +1,6 @@
 default: &default
   # url: <%= ENV["DB_URL"] || ENV["DATABASE_URL"] %>
-  host: <%= ENV['DATABASE_HOST'] || localhost %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
   adapter: postgresql
   encoding: unicode
   port: 5432
