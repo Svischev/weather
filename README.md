@@ -7,7 +7,7 @@ redis
 
 **Запуск через docker-compose**
 
-Создаем `.env` с переменными:
+Создаем `.env` с переменными:  
 ```
 DB_HOST=database
 DB_USERNAME=weather
@@ -19,11 +19,13 @@ OWM_APPID=6e8fedc7ee0e89d13cbc0a0499972abc
 YANDEX_API_KEY=d9b326b3-beeb-499d-9ecb-938c75c7af75
 ```
 
-запуск:
+запуск:  
 ```
 docker-compose up -d
 docker-compose exec app rails db:create db:migrate db:seed
 ```
+
+Браузер: http://localhost:3000  
 
 **Seed**
 
