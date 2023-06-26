@@ -42,11 +42,11 @@ docker-compose exec app rubocop
 bootstrap - чтобы все выглядело более-менее вменяемо  
 devise - для аутентификации  
 pundit - для авторизации на админку городов (cancancan тоже использовал ранее)  
-dotenv-rails - для переменных окружения, куда добавлял приватные ключи (API погоды, Яндекс карты)  
+dotenv-rails - для переменных окружения (API погоды, Яндекс карты и база с редисом)  
 faraday - для получения данных из внешнего API (так же есть опыт `rest-client` и `httparty`)  
 pry - для дебага  
 redis-store - кеширование в редис  
-rubocop-rails - для помощи в code style  
+rubocop-rails - для помощи с code style  
 
 **Описание реализации**:  
 
@@ -54,6 +54,7 @@ rubocop-rails - для помощи в code style
 В случае наличия множества ролей можно использовать rolify (работал с ним).  
 
 Поиск погоды реализован в Weather::SearchService  
+Тут так же реализовано кеширование ответа API на 10 минут в Redis  
 (`/app/services/weather/search_service.rb`)  
 
 Для работы с API реализован отдельный клиент Api::Openweathermap  
