@@ -26,12 +26,9 @@ docker-compose exec app rails db:create db:migrate db:seed
 ```
 
 Браузер: http://localhost:3000  
-
-**Seed**
-
-Есть реализация seed для создания пользователей и городов.  
-админ: admin@mail.ru (пасс admin@mail.ru)  
-пользователь: user1@mail.ru (пасс user1@mail.ru)  
+ 
+админ: `admin@mail.ru` (пасс `admin@mail.ru`)  
+пользователь: `user1@mail.ru` (пасс `user1@mail.ru`)  
 
 **Тесты и rubocop через docker-compose**
 
